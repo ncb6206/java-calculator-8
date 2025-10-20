@@ -26,7 +26,17 @@ private static int calculate(String input) {
     String[] tokens = numbersPart.split(delimiterRegex);
     int sum = 0;
     for (String token : tokens) {
-        sum += Integer.parseInt(token);
+        if (token.isEmpty()) {
+            throw new IllegalArgumentException("빈 토큰은 허용되지 않습니다.");
+        }
+        if (!token.chars().allMatch(Character::isDigit)) {
+            throw new IllegalArgumentException("숫자가 아닌 값이 포함되어 있습니다.");
+        }
+        int value = Integer.parseInt(token);
+        if (value < 0) {
+            throw new IllegalArgumentException("음수는 허용되지 않습니다.");
+        }
+        sum += value;
     }
     return sum;
 }

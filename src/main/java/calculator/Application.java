@@ -5,3 +5,10 @@ public class Application {
         // TODO: 프로그램 구현
     }
 }
+
+private static int calculate(String input){
+    if(input == null || input.isEmpty()){
+        return 0;
+    }
+    return 0;
+}
